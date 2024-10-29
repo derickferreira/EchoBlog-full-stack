@@ -1,6 +1,9 @@
 import { createRoot } from "react-dom/client";
 import { App } from "./App.tsx";
 
+// context
+import { ThemeContextProvider } from "./shared/contexts/ThemeContext.tsx";
+
 // react-router-dom
 import {
   createBrowserRouter,
@@ -29,5 +32,7 @@ const routes: IRoutes[] = [
 const router = createBrowserRouter(routes);
 
 createRoot(document.getElementById("root")!).render(
-  <RouterProvider router={router} />
+  <ThemeContextProvider>
+    <RouterProvider router={router} />
+  </ThemeContextProvider>
 );

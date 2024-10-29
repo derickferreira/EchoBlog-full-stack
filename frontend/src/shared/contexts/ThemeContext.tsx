@@ -41,13 +41,15 @@ export const ThemeContextProvider: FC<IThemeProviderProps> = ({ children }) => {
 
   return (
     <ThemeContext.Provider value={{ themeName, toggleTheme }}>
-      <Box
-        height="100vh"
-        width="100vw"
-        bgcolor={theme.palette.background.default}
-      >
-        {children}
-      </Box>
+      <ThemeProvider theme={theme}>
+        <Box
+          height="100vh"
+          width="100vw"
+          bgcolor={theme.palette.background.default}
+        >
+          {children}
+        </Box>
+      </ThemeProvider>
     </ThemeContext.Provider>
   );
 };
