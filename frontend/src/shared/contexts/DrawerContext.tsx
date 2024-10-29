@@ -20,7 +20,7 @@ export const DrawerContext = createContext<IDrawerContextData>(
   {} as IDrawerContextData
 );
 
-const DrawerContextProvider: FC<IDrawerContextProps> = ({ children }) => {
+export const DrawerContextProvider: FC<IDrawerContextProps> = ({ children }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
   const [drawerOptions, setDrawerOptions] = useState<IDrawerOption[]>([]);
 

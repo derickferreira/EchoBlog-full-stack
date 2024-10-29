@@ -2,7 +2,8 @@ import { createRoot } from "react-dom/client";
 import { App } from "./App.tsx";
 
 // context
-import { ThemeContextProvider } from "./shared/contexts/ThemeContext.tsx";
+import { ThemeContextProvider } from "./shared/contexts/";
+import { DrawerContextProvider } from "./shared/contexts/";
 
 // react-router-dom
 import {
@@ -33,6 +34,8 @@ const router = createBrowserRouter(routes);
 
 createRoot(document.getElementById("root")!).render(
   <ThemeContextProvider>
-    <RouterProvider router={router} />
+    <DrawerContextProvider>
+      <RouterProvider router={router} />
+    </DrawerContextProvider>
   </ThemeContextProvider>
 );
