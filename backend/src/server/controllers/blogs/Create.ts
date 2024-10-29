@@ -19,7 +19,7 @@ export const createBodyValidation = validation((getSchema) => ({
 export const create = async (
   request: Request<{}, {}, IBodyProps>,
   response: Response
-): Promise<void> => {
+) => {
   console.log(request.body);
-  response.status(StatusCodes.CREATED).json({ name: request.body });
+  return response.status(StatusCodes.CREATED).json(1);
 };

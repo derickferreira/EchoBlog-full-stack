@@ -25,6 +25,6 @@ router.post(
   BlogsController.create
 );
 
-router.get("/blogs", BlogsController.getAll);
+// router.get("/blogs", BlogsController.getAll);
 
 export { router };
