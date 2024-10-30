@@ -20,23 +20,25 @@ export const validation: TValidation =
 
     Object.entries(schemas).forEach(([key, schema]) => {
       try {
-        schema.validateSync(request[key as TProperty], { abortEarly: true });
+        schema.validateSync(request[key as TProperty], { abortEarly: false });
       } catch (err) {
         const yupError = err as ValidationError;
         const errors: Record<string, string> = {};
 
-        yupError.inner.forEach((erro) => {
-          if (erro.path === undefined) return;
-          errors[erro.path] = erro.message;
+        yupError.inner.forEach((error) => {
+          if (error.path === undefined) return;
+          errors[error.path] = error.message;
         });
 
         errorsResult[key] = errors;
       }
     });
 
-    if (Object.keys(errorsResult).length > 0) {
-      response.status(StatusCodes.BAD_REQUEST).json({ errors: errorsResult });
+    if (Object.entries(errorsResult).length === 0) {
+      return next();
     } else {
-      next();
+      return response
+        .status(StatusCodes.BAD_REQUEST)
+        .json({ errors: errorsResult });
     }
   };

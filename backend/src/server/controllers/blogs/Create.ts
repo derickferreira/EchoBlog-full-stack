@@ -20,6 +20,7 @@ export const create = async (
   request: Request<{}, {}, IBodyProps>,
   response: Response
 ) => {
-  console.log(request.body);
-  return response.status(StatusCodes.CREATED).json(1);
+  console.log(request.body.title);
+
+  return response.status(StatusCodes.CREATED).json("create");
 };
