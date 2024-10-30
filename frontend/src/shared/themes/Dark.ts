@@ -3,6 +3,7 @@ import { common, blue } from "@mui/material/colors";
 
 export const DarkTheme = createTheme({
   palette: {
+    mode: "dark",
     primary: {
       main: common.black,
       dark: common.white,
