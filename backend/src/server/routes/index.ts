@@ -18,6 +18,9 @@ router.get("/", (request, response) => {
 });
 
 // Blogs
+router.get("/blogs", BlogsController.getAll);
+
+router.get("/blogs/:id", BlogsController.getById);
 
 router.post(
   "/blogs",
@@ -25,6 +28,24 @@ router.post(
   BlogsController.create
 );
 
-// router.get("/blogs", BlogsController.getAll);
+router.put("/blogs/:id", BlogsController.updateById);
+
+router.delete("/blogs/:id", BlogsController.deleteById);
+
+// Commments
+router.post(
+  "comments/:id",
+  CommentsController.createCommentValidation,
+  CommentsController.create
+);
+
+router.get("blogs/:id/comments", CommentsController.getAll);
+
+// users
+router.get("users/:id", UsersController.getById);
+
+router.get("auth/register", UsersController.SignUp);
+
+router.get("auth/login", UsersController.signIn);
 
 export { router };
