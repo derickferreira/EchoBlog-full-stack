@@ -34,18 +34,18 @@ router.delete("/blogs/:id", BlogsController.deleteById);
 
 // Commments
 router.post(
-  "comments/:id",
+  "/comments/:id",
   CommentsController.createCommentValidation,
   CommentsController.create
 );
 
-router.get("blogs/:id/comments", CommentsController.getAll);
+router.get("/blogs/:id/comments", CommentsController.getAll);
 
 // users
-router.get("users/:id", UsersController.getById);
+router.get("/users/:id", UsersController.getById);
 
-router.get("auth/register", UsersController.SignUp);
+router.post("/auth/register", UsersController.SignUp);
 
-router.get("auth/login", UsersController.signIn);
+router.post("/auth/login", UsersController.signIn);
 
 export { router };
