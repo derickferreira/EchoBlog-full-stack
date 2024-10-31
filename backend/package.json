@@ -20,6 +20,7 @@
     "@types/express": "^4.17.13",
     "@types/http-status-codes": "^1.2.0",
     "http-status-codes": "^2.3.0",
+    "sqlite3": "^5.1.7",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.6.3"
   },
