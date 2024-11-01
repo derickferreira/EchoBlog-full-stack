@@ -47,7 +47,11 @@ router.post(
   CommentsController.create
 );
 
-router.get("/blogs/:id/comments", CommentsController.getAll);
+router.get(
+  "/blogs/:id/comments",
+  CommentsController.getAllValidation,
+  CommentsController.getAll
+);
 
 // users
 router.get(
