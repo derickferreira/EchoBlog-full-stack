@@ -18,9 +18,9 @@ router.get("/", (request, response) => {
 });
 
 // Blogs
-router.get("/blogs", BlogsController.getAll);
+router.get("/blogs", BlogsController.getAllValidation, BlogsController.getAll);
 
-router.get("/blogs/:id", BlogsController.getById);
+router.get("/blogs/:id", BlogsController.getById, BlogsController.getById);
 
 router.post(
   "/blogs",
@@ -28,9 +28,17 @@ router.post(
   BlogsController.create
 );
 
-router.put("/blogs/:id", BlogsController.updateById);
+router.put(
+  "/blogs/:id",
+  BlogsController.updateByIdValidation,
+  BlogsController.updateById
+);
 
-router.delete("/blogs/:id", BlogsController.deleteById);
+router.delete(
+  "/blogs/:id",
+  BlogsController.deleteByIdValidation,
+  BlogsController.deleteById
+);
 
 // Commments
 router.post(
@@ -44,7 +52,11 @@ router.get("/blogs/:id/comments", CommentsController.getAll);
 // users
 router.get("/users/:id", UsersController.getById);
 
-router.post("/auth/register", UsersController.SignUp);
+router.post(
+  "/auth/register",
+  UsersController.signUpValidation,
+  UsersController.SignUp
+);
 
 router.post("/auth/login", UsersController.signIn);
 
