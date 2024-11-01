@@ -50,7 +50,11 @@ router.post(
 router.get("/blogs/:id/comments", CommentsController.getAll);
 
 // users
-router.get("/users/:id", UsersController.getById);
+router.get(
+  "/users/:id",
+  UsersController.getByIdValidation,
+  UsersController.getById
+);
 
 router.post(
   "/auth/register",
@@ -58,6 +62,10 @@ router.post(
   UsersController.SignUp
 );
 
-router.post("/auth/login", UsersController.signIn);
+router.post(
+  "/auth/login",
+  UsersController.signInValidation,
+  UsersController.signIn
+);
 
 export { router };
